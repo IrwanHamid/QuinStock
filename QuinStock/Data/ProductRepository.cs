@@ -15,43 +15,37 @@ namespace QuinStock.Data
             _context = context;
         }
 
-        //TODO: Check avaibility of record 
-        public IEnumerable<ProductSize> GetAllProductSize()
+        public IEnumerable<Product> GetAllProduct()
         {
-            return _context.ProductSizes.ToList();
+            return _context.Products.ToList();
         }
 
-        //TODO: Check avaibility of record 
-        public IEnumerable<ProductSize> GetAllProductSizeByProductId(Product product)
+        public Product AddProduct(Product product)
         {
-            return _context.ProductSizes.Where(ps => ps.ProductId == product.Id).ToList();
-        }
-
-        public ProductSize AddProductSize(ProductSize productSize)
-        {
-            _context.ProductSizes.Add(productSize);
+            _context.Products.Add(product);
             _context.SaveChanges();
 
-            return productSize;
+            return product;
         }
 
-        //TODO: Check avaibility of record 
-        public void UpdateProductSize(int productSizeId, ProductSize productSize)
+        public void UpdateProduct(int productId, Product product)
         {
-            var productSizeInDb = _context.ProductSizes.FirstOrDefault(ps => ps.Id == productSizeId);
+            var productInDb = _context.Products.FirstOrDefault(ps => ps.Id == productId);
 
-            productSizeInDb.Name = productSize.Name;
-            productSizeInDb.ProductId = productSize.ProductId;
+            productInDb.Name = product.Name;
+            productInDb.IsListedInStore = product.IsListedInStore;
+            productInDb.ProductSizes = product.ProductSizes;
+            productInDb.ProductColors = product.ProductColors;
+            productInDb.ProductImages = product.ProductImages;
 
             _context.SaveChanges();
         }
 
-        //TODO: Check avaibility of record 
-        public void DeleteProductSize(int productSizeId)
+        public void DeleteProduct(int productId)
         {
-            var productSizeInDb = _context.ProductSizes.FirstOrDefault(ps => ps.Id == productSizeId);
+            var productInDb = _context.Products.FirstOrDefault(ps => ps.Id == productId);
 
-            _context.ProductSizes.Remove(productSizeInDb);
+            _context.Products.Remove(productInDb);
             _context.SaveChanges();
         }
     }
