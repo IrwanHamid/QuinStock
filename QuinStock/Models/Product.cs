@@ -12,9 +12,11 @@ namespace QuinStock.Models
 
         [Required]
         [StringLength(40)]
+        [Display(Name="Product Name")]
         public string Name { get; set; }
 
         [Required]
+        [Display(Name="List this product in the store")]
         public bool IsListedInStore { get; set; }
 
         public ICollection<ProductSize> ProductSizes { get; set; }

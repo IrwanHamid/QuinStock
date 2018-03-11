@@ -5,13 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Add A Product</h2>
 
-<h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
+
+            <h3>Product Description</h3>
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -25,6 +27,22 @@
                     </label>
                 </div>
             </div>
+            
+            <h3>Product's Size</h3>
+
+            <table id="ProductSizeTable">
+                <tr>
+                    <td>Size Description</td>
+                    <td>Sort Number</td>
+                </tr>
+                <tr>
+                    <td><input class="inline-table-input" type="text" /></td>
+                    <td><input class="inline-table-input" type="text" /></td>
+                </tr>
+            </table>
+
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>

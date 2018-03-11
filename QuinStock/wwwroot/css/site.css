@@ -1,4 +1,6 @@
-﻿body {
+﻿@import url('site.min.css');
+@import url('site.css');
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -32,4 +34,11 @@
     .carousel-caption {
         display: none;
     }
+}
+
+.inline-table-input {
+    height: 30px;
+    border: 1px solid grey;
+    margin:  10px  0px;
+    padding: 3px 3px 3px 3px;
 }
